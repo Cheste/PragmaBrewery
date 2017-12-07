@@ -23,7 +23,9 @@ Services comunicate via asynchronous JMS messages. UI is based on JQuery and Web
 >Since the size of one of the smallest java8 Docker image is about 150 Mb. and Spring Boot in conjuction with Actuator and other libraries consumes about 800Mb. based on this we get total amount of memory consumed by one microservice which is around 1GB. And we need to start 6 beer container controllers, dashboard, cloud dashboar(Spring Boot Admin) and Eureka plus ActiveMQ broker.
 
 ### Clone git repositories
-
+```
+$ git clone https://github.com/Cheste/cloud.git
+```
 ### Start the platform
 All commands should be executed from project root directory.
 
