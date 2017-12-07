@@ -1,0 +1,14 @@
+queue:
+  alert: TEST.ALERT.QUEUE
+  temperature: TEST.TEMPERATURE.QUEUE
+
+temperature:
+  low: 3.0
+  high: 6.0
+  check:
+    timeout: 2 #SECONDS
+
+spring:
+  activemq:
+    packages:
+      trust-all: true

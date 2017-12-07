@@ -1,0 +1,118 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: dev_beer_controller
+queue:
+  alert: ALERT.QUEUE
+  temperature: TEMPERATURE.QUEUE
+
+jmsbroker:
+  login: admin
+  password: admin
+  url: ${JMS_BROKER_URL:tcp://localhost:61616}
+
+temperature:
+  check:
+    timeout: 5 #SECONDS
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761}/eureka/
+
+management.security.enabled: false
+
+server:
+  port: 8180
+
+
+---
+spring:
+  profiles: dev
+
+temperature:
+  low: 3.0
+  high: 6.0
+
+---
+spring:
+  profiles: ipa
+  application:
+    name: ipa
+
+temperature:
+  low: 5.0
+  high: 6.0
+
+server:
+  port: 8181
+
+---
+spring:
+  profiles: pilsner
+  application:
+    name: pilsner
+
+temperature:
+  low: 4.0
+  high: 6.0
+
+server:
+  port: 8182
+
+---
+spring:
+  profiles: lager
+  application:
+    name: lager
+
+temperature:
+  low: 4.0
+  high: 7.0
+
+
+server:
+  port: 8183
+---
+spring:
+  profiles: stout
+  application:
+    name: stout
+
+temperature:
+  low: 6.0
+  high: 8.0
+
+server:
+  port: 8184
+
+---
+spring:
+  profiles: wheat_beer
+  application:
+    name: wheat_beer
+
+temperature:
+  low: 3.0
+  high: 5.0
+
+
+server:
+  port: 8185
+
+---
+spring:
+  profiles: pale_ale
+  application:
+    name: pale_ale
+
+temperature:
+  low: 4.0
+  high: 6.0
+
+server:
+  port: 8186

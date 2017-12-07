@@ -1,0 +1,26 @@
+version: '3'
+services:
+  eureka:
+    build: ./service-discovery/.
+    image: service-discovery
+    container_name: eureka
+    ports:
+      - "8761:8761"
+
+  admin:
+    build: ./cloud-dashboard/.
+    image: cloud-dashboard
+    depends_on:
+      - eureka
+    container_name: admin
+    ports:
+     - "8090:8090"
+    environment:
+      - EUREKA_SERVICE_URL=http://eureka:8761
+
+  activemq:
+    image: webcenter/activemq:latest
+    container_name: activemq
+    ports:
+     - "8161:8161"
+     - "61616:61616"

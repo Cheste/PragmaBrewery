@@ -1,0 +1,77 @@
+version: '3'
+services:
+  dashboard:
+    build: ./dashboard/.
+    image: dashboard
+    container_name: dashboard
+    ports:
+     - "8080:8080"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+
+  ipa-container-controller:
+    build: ./container-controller/.
+    image: container-controller
+    container_name: ipa-contrainer-controller
+    ports:
+     - "8181:8181"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+     - SPRING_PROFILES_ACTIVE=ipa
+
+  pilsner-container-controller:
+    build: ./container-controller/.
+    image: container-controller
+    container_name: pilsner-contrainer-controller
+    ports:
+     - "8182:8182"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+     - SPRING_PROFILES_ACTIVE=pilsner
+
+  lager-container-controller:
+    build: ./container-controller/.
+    image: container-controller
+    container_name: lager-contrainer-controller
+    ports:
+     - "8183:8183"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+     - SPRING_PROFILES_ACTIVE=lager
+
+  stout-container-controller:
+    build: ./container-controller/.
+    image: container-controller
+    container_name: stout-contrainer-controller
+    ports:
+     - "8184:8184"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+     - SPRING_PROFILES_ACTIVE=stout
+
+  wheat-container-controller:
+    build: ./container-controller/.
+    image: container-controller
+    container_name: wheat-contrainer-controller
+    ports:
+     - "8185:8185"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+     - SPRING_PROFILES_ACTIVE=wheat_beer
+
+  pale-ale-container-controller:
+    build: ./container-controller/.
+    image: container-controller
+    container_name: pale-ale-contrainer-controller
+    ports:
+     - "8186:8186"
+    environment:
+     - EUREKA_SERVICE_URL=http://eureka:8761
+     - JMS_BROKER_URL=tcp://activemq:61616
+     - SPRING_PROFILES_ACTIVE=pale_ale

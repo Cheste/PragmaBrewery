@@ -1,0 +1,4 @@
+
+queue:
+  alert: TEST.ALERT.QUEUE
+  temperature: TEST.TEMPERATURE.QUEUE
