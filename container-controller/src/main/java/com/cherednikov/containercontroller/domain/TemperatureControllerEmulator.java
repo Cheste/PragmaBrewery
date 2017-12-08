@@ -58,7 +58,7 @@ public class TemperatureControllerEmulator {
                     TimeUnit.SECONDS.sleep(timeout);
                 } catch (InterruptedException e) {
                     e.printStackTrace(); //add log here
-                    Thread.currentThread().interrupt(); //TODO: VERIFY
+                    Thread.currentThread().interrupt();
                 }
             }
         });
